@@ -1,3 +1,5 @@
+"use client";
+
 //Afficher mes publications dans une card et je lui passe des props
 export default function BlogCard({blog, blogImage }) {
 

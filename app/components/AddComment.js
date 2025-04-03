@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 
 
-function AddComment({blogId}) {
+export default function AddComment({blogId}) {
     const [contenu, setContenu] = React.useState('');
     const [description, setDescription] = React.useState('');
     const [commentaires, setCommentaires] = React.useState([]);

@@ -9,6 +9,8 @@ import BlogCard from "./BlogCard"
 //Doit aller chercher mes informatios de mes blogs dans mon API
 export default function BlogList() {
 
+
+
     // Va chercher me donnée avec un fetch
     const fetchPublications =async () => {
         const reponse = await fetch('http://localhost:3000/publications');
@@ -28,18 +30,23 @@ export default function BlogList() {
     
     const blogCards = blogList.map(blog => <BlogCard key={blog.id} blog={blog} blogImage="/images/img-blog.jpg"/>)
     
+    
+    // -------------------------------------  Si Blogcard ne s'affiche pas semble est API non fonctionnelle p-e fetch  ------------------------------------- 
 
 
     return (
+        <>
+            
 
-        <div className="container-card-container">
-            <div className="row justify-content-center">
-                <div id="dynamicCardsContainer">
-                     <div className="row row-cols-1 row-cols-md-3">  {/* Pas le bon nbr de card par ligne*/}
-                        {blogCards}
+            <div className="container-card-container">
+                <div className="row justify-content-center">
+                    <div id="dynamicCardsContainer">
+                        <div className="row row-cols-1 row-cols-md-3">  {/* Pas le bon nbr de card par ligne*/}
+                            {blogCards}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

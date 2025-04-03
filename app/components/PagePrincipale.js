@@ -3,6 +3,9 @@
 // permet d'aller chercher mes composants
 import React, { useEffect } from "react";
 import Header from "./Header"
+import NavBar from "./NavBar";
+import BlogList from "./BlogList";
+import Footer from "./Footer";
 
 export default function PagePrincipale() {
     useEffect(() => {
@@ -12,8 +15,11 @@ export default function PagePrincipale() {
     
     
     return <>
-        <h1>Test Header</h1>
         <Header />
+        <NavBar/>
+        {/* Je ne sais pas encore pourquoi mais je ne voie pas mes card dans mon affiche dans ma pageprincipale */}
+        <BlogList />
+        <Footer />
 
     </>
 } 
