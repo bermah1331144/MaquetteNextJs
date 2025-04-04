@@ -2,7 +2,7 @@
 "use client"
 
 // permet d'aller chercher mes composants
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BlogCard from "./BlogCard"
 
 
@@ -18,11 +18,11 @@ export default function BlogList() {
         return await reponse.json();
     }
 
-    const [blogList, setBlogList] = React.useState([]);
+    const [blogList, setBlogList] = useState([]);
 
     // !!!! -----------    VOIR CommentList.js il a la reponse pour aller chercher id
     //utilse useEffect pour aller chercher mes publications
-    React.useEffect (() => {
+    useEffect (() => {
         fetchPublications().then((data => setBlogList(data)))
         .catch(error => console.log(error)
         );

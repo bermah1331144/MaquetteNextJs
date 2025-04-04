@@ -2,15 +2,16 @@
 "use client"
 
 // permet d'aller chercher mes composants
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
+import { useRouter } from 'next/navigation';
 
 
 export default function AddComment({blogId}) {
-    const [contenu, setContenu] = React.useState('');
-    const [description, setDescription] = React.useState('');
-    const [commentaires, setCommentaires] = React.useState([]);
-    const [confirmation, setConfirmation] = React.useState(null);   
+    const [contenu, setContenu] = useState('');
+    const [description, setDescription] = useState('');
+    const [commentaires, setCommentaires] = useState([]);
+    const [confirmation, setConfirmation] = useState(null);   
     const HandleSumbit = async(e) => {
         e.preventDefault();
     

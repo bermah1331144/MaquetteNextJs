@@ -2,10 +2,10 @@
 "use client"
 
 // permet d'aller chercher mes composants
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 export default function BlogDetails({blogId}) {
     
-    const [BlogDetails,setBlogDetails] = React.useState([]);
+    const [BlogDetails,setBlogDetails] = useState([]);
     // Va chercher me donnée avec un fetch
 
 
@@ -17,7 +17,7 @@ export default function BlogDetails({blogId}) {
     }
     
    //utilse useEffect pour aller chercher mes publications 
-    React.useEffect(()=>{
+    useEffect(()=>{
         fetchPublications().then((data => setBlogDetails(data)))
         .catch(error => console.log(error)
         );

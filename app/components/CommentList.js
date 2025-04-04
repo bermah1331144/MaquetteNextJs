@@ -2,13 +2,13 @@
 "use client"
 
 // permet d'aller chercher mes composants
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 //Sert afficher la liste des commentaire dans la page blog
 export default function CommentList({blogId}) {
     //doit aller chercher mes infos dans mon API
-    const [commentaires, setCommentaires] = React.useState([]);
+    const [commentaires, setCommentaires] = useState([]);
 
     //Faire un fetch
     const getCommentairesAsyc =async () => {
@@ -18,7 +18,7 @@ export default function CommentList({blogId}) {
     }
 
     //utilse useEffect pour aller chercher mes commentaires
-    React.useEffect(() => {
+    useEffect(() => {
         getCommentairesAsyc(blogId).then((data => setCommentaires(data)))
         .catch(error => console.log(error)
         );
