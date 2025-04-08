@@ -3,7 +3,7 @@
 
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
-
+import actions from "../actions";
 import { useRouter } from 'next/navigation';
 
 
@@ -23,6 +23,10 @@ export default function AddComment({blogId}) {
 
     }
 
+
+    // ---------------------------------------------------------- PA SUR PENTOUTE DE MES DEUX LIGNES LA !! 28 & 30 ----------------------------------------------------------
+    const ajouterCommentaireBd = actions.AddCommentaireBd;
+
     const reponseAjoutCommentaireBd = await ajouterCommentaireBd(nouveauCommentaire);
  
 
@@ -41,7 +45,7 @@ export default function AddComment({blogId}) {
 
     <div className="card mt-4 p-3">
         <h5 className="card-title">Ajouter un commentaire</h5>
-            <form onSubmit={HandleSumbit}/>
+            <form action = {reponseAjoutCommentaireBd}/>
                 <div className="row g-2">
                     <div className="col"></div>
                         <input
@@ -62,34 +66,6 @@ export default function AddComment({blogId}) {
 
     ) 
 
-}
-
-// doit faire la requete qui va envouyer le commentaire dans mon API
-async function ajouterCommentaireBd(nouveauCommentaire) {
-    try {
-        const response = fetch("http://localhost:3000/commentaires", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(nouveauCommentaire)
-        });
-        const commentaire = response.json();
-        affichereDataCommentaires(publicationId,commentaire);
-
-    if (!response.ok) {
-        throw new Error(`Erreur lors de l'envoi du commentaire : ${response.status}`);
-    }
-    const donnee = await response.json();
-    console.log("Votre publication a été ajoutée avec succès :", donnee);
-
-
-    return donnee;
-
-    } catch (error) {
-        console.log("Erreur ajout commentaire :", error);
-        return  null;
-    }
 }
 
 function btn() {

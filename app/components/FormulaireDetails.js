@@ -1,11 +1,15 @@
+import actions from "../actions";
+
 export default function FormulaireDetails() {
+
+    const ajouterPublicationBd = actions.AddPublicationBd;
     return (
     <div className="container d-flex justify-content-center aling-items-center">
         <div className="row">
             <div className="col-12 text-center">
                 <h1>Formulaire</h1>
             </div>        
-            <form className="publicationForm">
+            <form action={ajouterPublicationBd}>
                 <table className="table">
                     <tr>
                         <th className="col-12 text-center">Formulaire d'ajout de publication</th>

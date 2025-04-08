@@ -3,19 +3,15 @@
 
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
-
+import actions from "../actions";
 
 //Sert afficher la liste des commentaire dans la page blog
 export default function CommentList({blogId}) {
     //doit aller chercher mes infos dans mon API
     const [commentaires, setCommentaires] = useState([]);
 
-    //Faire un fetch
-    const getCommentairesAsyc =async () => {
-        const reponse = await fetch(`http://localhost:3000/commentaires?publicationId=${blogId}`);
-        if(!reponse.ok) throw new Error(`Erreur lors de la requête : ${reponse.status}`);
-        return await reponse.json();
-    }
+
+    const getCommentairesAsyc = actions.fetchCommentaires();
 
     //utilse useEffect pour aller chercher mes commentaires
     useEffect(() => {
