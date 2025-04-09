@@ -9,9 +9,7 @@ import Footer from "./Footer"
 export default function PageBlog() {
 
     return <>
-        <Header />
-        <NavBar/>
+
         <Blog />
-        <Footer />
     </>
 }

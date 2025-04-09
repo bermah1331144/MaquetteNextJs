@@ -12,9 +12,7 @@ import FormulaireDetails from "./FormulaireDetails";
 export default function PageFormulaire() {
         
     return <>
-        <Header />
-        <NavBar />
         <FormulaireDetails />
-        <Footer />
+    
     </>
 }

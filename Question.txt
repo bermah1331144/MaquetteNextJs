@@ -1,9 +1,1 @@
-Dans mes pages ou je fait j'appel le formulaire soit :
-AddComment & PageFormulaire. Je dois importer ma page actions ?
-je comprend pas pourquoi cette ligne reste en pale import actions from "../actions";?
-
-Dans mon ficher actions.js. je fais toute mais fetch, mais que ce passe t'il dans mes routes Handlers ?
-Je fais des fetch dedans? est-ce que je le laisse comme ca ou importer mon ficher actions et je appel 
-mes methodes, le met dans un variable et go  ? Voir ficher actions et route.js
-
-Dans ma fiche Add comment Je suis mellanger voir la ligne en commentaire
+Reponse doit mettre header­\nabbar\footer dans layout les appeler autour de children dans bon ordre

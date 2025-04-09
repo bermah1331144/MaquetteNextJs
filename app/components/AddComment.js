@@ -24,10 +24,7 @@ export default function AddComment({blogId}) {
     }
 
 
-    // ---------------------------------------------------------- PA SUR PENTOUTE DE MES DEUX LIGNES LA !! 28 & 30 ----------------------------------------------------------
-    const ajouterCommentaireBd = actions.AddCommentaireBd;
-
-    const reponseAjoutCommentaireBd = await ajouterCommentaireBd(nouveauCommentaire);
+    const reponseAjoutCommentaireBd = await actions.AddCommentaireBd(nouveauCommentaire);
  
 
     if(reponseAjoutCommentaireBd) {
