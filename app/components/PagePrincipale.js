@@ -15,11 +15,10 @@ export default function PagePrincipale() {
     
     
     return <>
-        <Header />
-        <NavBar/>
+ 
         {/* Je ne sais pas encore pourquoi mais je ne voie pas mes card dans mon affiche dans ma pageprincipale */}
         <BlogList />
-        <Footer />
+
 
     </>
 } 

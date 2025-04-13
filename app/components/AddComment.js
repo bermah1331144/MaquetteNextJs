@@ -2,15 +2,16 @@
 "use client"
 
 // permet d'aller chercher mes composants
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
+import actions from "../actions";
+import { useRouter } from 'next/navigation';
 
 
 export default function AddComment({blogId}) {
-    const [contenu, setContenu] = React.useState('');
-    const [description, setDescription] = React.useState('');
-    const [commentaires, setCommentaires] = React.useState([]);
-    const [confirmation, setConfirmation] = React.useState(null);   
+    const [contenu, setContenu] = useState('');
+    const [description, setDescription] = useState('');
+    const [commentaires, setCommentaires] = useState([]);
+    const [confirmation, setConfirmation] = useState(null);   
     const HandleSumbit = async(e) => {
         e.preventDefault();
     
@@ -22,7 +23,8 @@ export default function AddComment({blogId}) {
 
     }
 
-    const reponseAjoutCommentaireBd = await ajouterCommentaireBd(nouveauCommentaire);
+
+    const reponseAjoutCommentaireBd = await actions.AddCommentaireBd(nouveauCommentaire);
  
 
     if(reponseAjoutCommentaireBd) {
@@ -40,7 +42,7 @@ export default function AddComment({blogId}) {
 
     <div className="card mt-4 p-3">
         <h5 className="card-title">Ajouter un commentaire</h5>
-            <form onSubmit={HandleSumbit}/>
+            <form action = {reponseAjoutCommentaireBd}/>
                 <div className="row g-2">
                     <div className="col"></div>
                         <input
@@ -61,34 +63,6 @@ export default function AddComment({blogId}) {
 
     ) 
 
-}
-
-// doit faire la requete qui va envouyer le commentaire dans mon API
-async function ajouterCommentaireBd(nouveauCommentaire) {
-    try {
-        const response = fetch("http://localhost:3000/commentaires", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(nouveauCommentaire)
-        });
-        const commentaire = response.json();
-        affichereDataCommentaires(publicationId,commentaire);
-
-    if (!response.ok) {
-        throw new Error(`Erreur lors de l'envoi du commentaire : ${response.status}`);
-    }
-    const donnee = await response.json();
-    console.log("Votre publication a été ajoutée avec succès :", donnee);
-
-
-    return donnee;
-
-    } catch (error) {
-        console.log("Erreur ajout commentaire :", error);
-        return  null;
-    }
 }
 
 function btn() {
