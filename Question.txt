@@ -1,7 +1,1 @@
-Pourquoi dans mon composant PagePrincipale.js
-il me demande de mettre use client alors
-qu'il est deja appeler dans blofList ?
-
-Pourquoi quand j'utilise React.Use.... dans next.js
-il tombe en erreur dans le React? on devait pas 
-L'enlever le React ?
+Reponse doit mettre header­\nabbar\footer dans layout les appeler autour de children dans bon ordre

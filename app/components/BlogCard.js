@@ -3,8 +3,6 @@
 //Afficher mes publications dans une card et je lui passe des props
 export default function BlogCard({blog, blogImage }) {
 
-
-
 return (
     <div className="col">
       <div className="card">

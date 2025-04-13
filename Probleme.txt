@@ -1,2 +1,0 @@
-Dans TOUTES mes pages je n'arrive pas aller chercher
-mes données dans mon API ?
