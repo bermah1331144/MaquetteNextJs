@@ -5,7 +5,7 @@ export default function NavBar() {
             <div className="col-12 col-md-8">
                 <form className="container-fluid">
                     <div className="input-group">
-                        <span className="input-group-image d-inline-block align-text-top" id="basic-addon1"><img src="/images/loupe.png" alt="Logo" width="40" height="40" /></span>
+                        <span className="input-group-image d-inline-block align-text-top" id="basic-addon1"><img src="/loupe.png" alt="Logo" width="40" height="40" /></span>
                         <input type="text" className="form-control" placeholder="Rechercher" aria-label="Username" aria-describedby="basic-addon1"/>
                     </div>
                 </form>

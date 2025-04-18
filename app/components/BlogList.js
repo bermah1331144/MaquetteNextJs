@@ -5,21 +5,27 @@
 import { useState, useEffect } from 'react';
 import BlogCard from "./BlogCard"
 import actions from "../actions";
+import { fetchPublications } from '../actions';
+import Image from 'next/image';
+
 
 //Doit aller chercher mes informatios de mes blogs dans mon API
 export default function BlogList() {
 
     const [blogList, setBlogList] = useState([]);
 
-    const getPublications = actions.fetchPublications()
-
-    // !!!! -----------    VOIR CommentList.js il a la reponse pour aller chercher id
-    //utilse useEffect pour aller chercher mes publications
-    useEffect (() => {
-        getPublications().then((data => setBlogList(data)))
-        .catch(error => console.log(error)
-        );
-    }, [])
+    useEffect(() => {
+        async function chargerPublications() {
+          try {
+            const getPublications = await fetchPublications()
+            setBlogList(getPublications);
+          } catch (error) {
+            console.error("Erreur lors du chargement des publications :", error);
+          }
+        }
+    
+        chargerPublications();
+      }, []);
     
     const blogCards = blogList.map(blog => <BlogCard key={blog.id} blog={blog} blogImage="/images/img-blog.jpg"/>)
     
