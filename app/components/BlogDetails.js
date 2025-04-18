@@ -5,11 +5,11 @@ import actions from "../actions";
 
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
-export default function BlogDetails({blogId}) {
+export default function BlogDetails({blog}) {
     
     const [BlogDetails,setBlogDetails] = useState([]);
     
-    const getPublications = actions.fetchDetailsPublications(blogId)
+    const getPublications = actions.fetchDetailsPublications(blog)
 
 
    //utilse useEffect pour aller chercher mes publications 

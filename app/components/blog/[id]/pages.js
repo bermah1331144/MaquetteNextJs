@@ -1,13 +1,18 @@
-import BlogDetails from "@/app/components/BlogDetails";
-import { fetchPublicationById } from "@/app/actions";   
+import { fetchDetailsPublication } from "@/app/actions"; 
+import BlogDetails from "@/app/components/BlogDetails"; 
 
 export default async function Page({ params }) {
-  const id = params.id;
-  const blog = await fetchPublicationById(id);
+  const blogId = params.id;
+
+  const blog = await fetchDetailsPublication(blogId); 
 
   if (!blog) {
     return <div>Blog introuvable</div>;
   }
 
-  return <BlogDetails blog={blog} />;
+  return (
+    <div className="container mt-4">
+      <BlogDetails blog={blog} />
+    </div>
+  );
 }
