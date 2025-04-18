@@ -1,33 +1,31 @@
 "use server";
 
 
-import synchro from "./syncData";
-
 
 
 //Permet de ajouter une publication dans ma bd du cote serveur
 // -------------------------------- PAS SUR PENTOUE --------------------------------
-export async function AddPublicationBd({nouvellepublication, blogId}) {
+export default async function AddPublicationBd({formData, blogId}) {
 
     const titre = formData.get("titre");
     const auteur = formData.get("auteur");
     const contenu = formData.get("contenu");
 
-    const nouvellepublication = {
+    const nouvellePublication = {
         titre,
         auteur,
         date: new Date().toISOString(),
         contenu
     };
 
-    console.log('publication envoyé :', nouvellepublication);
+    console.log('publication envoyé :', nouvellePublication);
 
     await fetch(`http://localhost:3001/publications/${blogId}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nouvellepublication }),
+        body: JSON.stringify({ nouvellePublication }),
     });
 
     await synchro();    
@@ -70,12 +68,15 @@ export async function fetchDetailsPublications(blogId) {
 }
 
 //Permet d'Aller chercher toute les publications
-export async function fetchPublications() {
-    const response = await fetch(`http://localhost:3001/publications`);  
-    if(!reponse.ok) throw new Error(`Erreur lors de la requête : ${reponse.status}`);
+export async function fetchPublications() { 
+    const response = await fetch("http://localhost:3001/publications");
+  
+    if (!response.ok) {
+      throw new Error(`Erreur lors de la requête : ${response.status}`);
+    }
+  
     return await response.json();
-}
-
+  }
 //permet d'aller chercher tout les commentaires
 export async function fetchCommentaires() {
     const response = await fetch(`http://localhost:3001/commentaires`);  
