@@ -10,7 +10,7 @@ export default function Header(){
             <div className="collapse navbar-collapse d-flex justify-content-centers" id="navbarNav">
                 <ul className="navbar-nav d-flex">
                     <li className="nav-item">
-                        <Link className="nav-link active" aria-current="page" href="PagePrincipale.html">Home</Link>
+                        <Link className="nav-link active" aria-current="page" href="/">Home</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" href="#">Features</Link>

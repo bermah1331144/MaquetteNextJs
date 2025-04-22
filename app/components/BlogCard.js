@@ -12,7 +12,7 @@ return (
                     <div className="card-body">
                         <h5 > {blog.titre}</h5>
                         <p> {blog.contenu}</p>
-                        <Link href={`components/blog/${blog.id}`} className="btn btn-primary">Go somewhere</Link>
+                        <Link href={`/blog/${blog.id}`} className="btn btn-primary">Go somewhere</Link>
                     </div>
             </div>
         </div>

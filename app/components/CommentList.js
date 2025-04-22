@@ -3,7 +3,7 @@
 
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
-import actions from "../actions";
+import {fetchCommentaires } from "../actions";
 
 //Sert afficher la liste des commentaire dans la page blog
 export default function CommentList({blogId}) {
@@ -11,11 +11,9 @@ export default function CommentList({blogId}) {
     const [commentaires, setCommentaires] = useState([]);
 
 
-    const getCommentairesAsyc = actions.fetchCommentaires();
-
     //utilse useEffect pour aller chercher mes commentaires
     useEffect(() => {
-        getCommentairesAsyc(blogId).then((data => setCommentaires(data)))
+        fetchCommentaires().then((data => setCommentaires(data)))
         .catch(error => console.log(error)
         );
     }, [])
