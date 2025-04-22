@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 export default function Header(){
     return (
     <nav className="navbar navbar-expand-lg bg-body">
@@ -10,16 +10,16 @@ export default function Header(){
             <div className="collapse navbar-collapse d-flex justify-content-centers" id="navbarNav">
                 <ul className="navbar-nav d-flex">
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="PagePrincipale.html">Home</a>
+                        <Link className="nav-link active" aria-current="page" href="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
+                        <Link className="nav-link" href="#">Features</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Pricing</a>
+                        <Link className="nav-link" href="#">Pricing</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <Link className="nav-link disabled" aria-disabled="true" href="#">Disabled</Link>
                     </li>
                 </ul>
             </div>
