@@ -3,7 +3,7 @@
 
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
-import actions from "../actions";
+import {AddCommentaireBd}  from "../actions";
 import { useRouter } from 'next/navigation';
 
 
@@ -12,9 +12,15 @@ export default function AddComment({blogId}) {
     const [description, setDescription] = useState('');
     const [commentaires, setCommentaires] = useState([]);
     const [confirmation, setConfirmation] = useState(null);   
+    const [confirm, setConfirm] = useState(false);
+
+    useEffect(() => {
+      setConfirm(true);
+    }, []);
     const HandleSumbit = async(e) => {
         e.preventDefault();
     
+        await confirmationAjoutCommentaire(nouveauCommentaire());
     const nouveauCommentaire = {
         publicationId: blogId,
         date : new Date().toISOString().split('T')[0],
@@ -22,9 +28,12 @@ export default function AddComment({blogId}) {
         description
 
     }
+    return nouveauCommentaire
+}
 
 
-    const reponseAjoutCommentaireBd = await actions.AddCommentaireBd(nouveauCommentaire);
+async function confirmationAjoutCommentaire(nouveauCommentaire) {
+   const reponseAjoutCommentaireBd = await AddCommentaireBd(nouveauCommentaire);
  
 
     if(reponseAjoutCommentaireBd) {
@@ -35,14 +44,17 @@ export default function AddComment({blogId}) {
         setCommentaires("Votre commentaire a été ajouté avec succès.");
     }
     else{
-        setConfirmation("Echec de l'ajout du commentaire.");
+        setConfirmation("Echec de l'ajout du commentaire.");    
+    } 
+    return reponseAjoutCommentaireBd
+
     }
-}
+
     return (
 
     <div className="card mt-4 p-3">
         <h5 className="card-title">Ajouter un commentaire</h5>
-            <form action = {reponseAjoutCommentaireBd}/>
+            <form onSubmit = {HandleSumbit}/>
                 <div className="row g-2">
                     <div className="col"></div>
                         <input

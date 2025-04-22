@@ -5,7 +5,7 @@
 
 //Permet de ajouter une publication dans ma bd du cote serveur
 // -------------------------------- PAS SUR PENTOUE --------------------------------
-export default async function AddPublicationBd({formData, id}) {
+export async function AddPublicationBd({formData, id}) {
 
     const titre = formData.get("titre");
     const auteur = formData.get("auteur");
@@ -61,12 +61,15 @@ export async function AddCommentaireBd(formData) {
 }
 
 //Permet d'aller chercher les details d'une publication
-export async function fetchDetailsPublications(id) {
-    const response = await fetch(`http://localhost:3001/publications/${id}`);  
-    if(!reponse.ok) throw new Error(`Erreur lors de la requête : ${reponse.status}`);
+export async function fetchDetailsPublication(id) {
+    const response = await fetch(`http://localhost:3001/publications/${id}`);
+  
+    if (!response.ok) {
+      throw new Error(`Erreur lors de la requête : ${response.status}`);
+    }
+  
     return await response.json();
-}
-
+  }
 //Permet d'Aller chercher toute les publications
 export async function fetchPublications() { 
     const response = await fetch("http://localhost:3001/publications");

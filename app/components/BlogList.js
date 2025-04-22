@@ -4,8 +4,7 @@
 // permet d'aller chercher mes composants
 import { useState, useEffect } from 'react';
 import BlogCard from "./BlogCard"
-import actions from "../actions";
-import { fetchPublications } from '../actions';
+import actions, { fetchPublications } from '../actions';
 import Image from 'next/image';
 
 
