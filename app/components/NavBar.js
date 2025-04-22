@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NavBar() {
     return (
     <div className="container-fluid-card">
@@ -14,14 +16,14 @@ export default function NavBar() {
                 <p>Trier par : </p>
             </div>
             <div className="col-6 col-md-1">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Select
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                    <li><Link className="dropdown-item" href="#">Action</Link></li>
+                    <li><Link className="dropdown-item" href="#">Another action</Link></li>
                     <li><hr className="dropdown-divider"/></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                    <li><Link className="dropdown-item" href="#">Something else here</Link></li>
                 </ul>
             </div>
         </div>
