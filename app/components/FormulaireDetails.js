@@ -1,8 +1,8 @@
-import actions from "../actions";
+import {AddPublicationBd} from "../actions";
 
 export default function FormulaireDetails() {
 
-    const ajouterPublicationBd = actions.AddPublicationBd;
+    const ajouterPublicationBd = AddPublicationBd;
     return (
     <div className="container d-flex justify-content-center aling-items-center">
         <div className="row">
